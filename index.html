@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhumi's Personal Assistant - Password</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="login-container">
+    <h1>Bhumi's Personal Assistant</h1>
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error" style="color:red;"></p>
+</div>
+<script>
+function checkPassword() {
+    const password = document.getElementById('password').value;
+    const correctPassword = 'emina';
+
+    if(password === correctPassword){
+        localStorage.setItem('username', 'bhumi'); // default user
+        if(!localStorage.getItem('chatHistory')) localStorage.setItem('chatHistory', JSON.stringify([]));
+        window.location.href = 'assistant.html';
+    } else {
+        document.getElementById('error').innerText = 'Incorrect Password';
+    }
+}
+</script>
+</body>
+</html>
